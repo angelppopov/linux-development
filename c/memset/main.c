@@ -14,9 +14,12 @@
   (byte & 0x01 ? '1' : '0')
 
 
-
 void printBinary(size_t m){
-    printf(BYTE_TO_BINARY_PATTERN" "BYTE_TO_BINARY_PATTERN" "BYTE_TO_BINARY_PATTERN" "BYTE_TO_BINARY_PATTERN "\n"
+    printf(BYTE_TO_BINARY_PATTERN" "BYTE_TO_BINARY_PATTERN" "BYTE_TO_BINARY_PATTERN" "BYTE_TO_BINARY_PATTERN" "BYTE_TO_BINARY_PATTERN" "BYTE_TO_BINARY_PATTERN" "BYTE_TO_BINARY_PATTERN" "BYTE_TO_BINARY_PATTERN "\n"
+           , BYTE_TO_BINARY(m>>56)
+           , BYTE_TO_BINARY(m>>48)
+           , BYTE_TO_BINARY(m>>40)
+           , BYTE_TO_BINARY(m>>32)
            , BYTE_TO_BINARY(m>>24)
            , BYTE_TO_BINARY(m>>16)
            , BYTE_TO_BINARY(m>>8)
@@ -72,8 +75,8 @@ int main(void){
 	return -1;
     }
     
-    s[0] = 0xFFFFFFFFF;
-    s[1] = 0xFFFFFFFFF;
+    s[0] = 0xFFFFFFFFFFFFFFFF;
+    s[1] = 0xFFFFFFFFFFFFFFFF;
     printf("Our s pointer to usigned long 64 has all bits set to 1 initialy\n");
     printBinary(s[0]);
     printBinary(s[1]);
